@@ -13,11 +13,25 @@ export class AgentLLMClient {
   private model: string;
 
   constructor() {
-    const apiKey = process.env.OPENAI_API_KEY;
-    this.model = process.env.LLM_MODEL || 'gpt-4o-mini';
+    const geminiKey = process.env.GEMINI_API_KEY?.trim();
+    const openaiKey = process.env.OPENAI_API_KEY?.trim();
+    const isValidKey = (k?: string) =>
+      !!k && !k.includes('placeholder') && !k.includes('your_llm') && !k.includes('your_gemini');
 
-    if (apiKey && !apiKey.includes('placeholder') && !apiKey.includes('your_llm')) {
-      this.openai = new OpenAI({ apiKey });
+    if (isValidKey(geminiKey)) {
+      this.model = process.env.LLM_MODEL || 'gemini-2.5-flash';
+      this.openai = new OpenAI({
+        apiKey: geminiKey,
+        baseURL: process.env.LLM_BASE_URL || 'https://generativelanguage.googleapis.com/v1beta/openai/',
+      });
+    } else if (isValidKey(openaiKey)) {
+      this.model = process.env.LLM_MODEL || 'gpt-4o-mini';
+      this.openai = new OpenAI({
+        apiKey: openaiKey,
+        ...(process.env.LLM_BASE_URL ? { baseURL: process.env.LLM_BASE_URL } : {}),
+      });
+    } else {
+      this.model = process.env.LLM_MODEL || 'gemini-2.5-flash';
     }
   }
 
