@@ -1,0 +1,36 @@
+# Environment & Secrets (keep .env.example)
+.env
+.env.local
+.env.*.local
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Node dependencies & build output
+node_modules/
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Playwright & debug artifacts
+.playwright-mcp/
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+*.log
+

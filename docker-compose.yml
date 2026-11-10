@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: trustrail_db
+    environment:
+      POSTGRES_USER: trustrail
+      POSTGRES_PASSWORD: trustrail
+      POSTGRES_DB: trustrail
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/db/migrations/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql
+
+  backend:
+    build: ./backend
+    container_name: trustrail_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file: .env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./backend:/app
+
+  dashboard:
+    build: ./dashboard
+    container_name: trustrail_dashboard
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000
+    volumes:
+      - ./dashboard:/app
+      - /app/node_modules
+
+volumes:
+  pgdata:
+
