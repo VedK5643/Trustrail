@@ -46,7 +46,7 @@ export default function App() {
     }
   }, [selectedAgentId, statusFilter]);
 
-  usePolling(fetchData, 2000);
+  usePolling(fetchData, 5000);
 
   return (
     <div className={`flex flex-col h-screen w-screen overflow-hidden ${theme === 'dark' ? 'dark' : ''} bg-[#f5f5f7] dark:bg-[#08080a] text-[#1d1d1f] dark:text-[#f5f5f7] font-sans antialiased selection:bg-blue-500/20 dark:selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-white transition-colors duration-200`}>
@@ -67,7 +67,7 @@ export default function App() {
         </div>
 
         {/* Apple Segmented Control for Navigation Tabs */}
-        <div className="flex items-center bg-black/[0.05] dark:bg-black/40 p-1 rounded-xl border border-black/[0.06] dark:border-white/[0.08] shadow-inner backdrop-blur-md">
+        <div className="flex items-center bg-black/[0.05] dark:bg-black/40 p-1 rounded-xl border border-black/[0.06] dark:border-white/[0.08] shadow-inner">
           <button
             onClick={() => setActiveTab('feed')}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-150 active:scale-[0.98] ${

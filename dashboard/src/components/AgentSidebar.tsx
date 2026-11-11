@@ -17,7 +17,7 @@ export const AgentSidebar: React.FC<AgentSidebarProps> = ({
   onRefresh,
 }) => {
   return (
-    <aside className="w-80 border-r border-black/[0.08] dark:border-white/[0.08] bg-white/70 dark:bg-[#0c0c0e]/50 backdrop-blur-2xl p-5 flex flex-col gap-5 shrink-0 h-full overflow-y-auto z-20 transition-colors duration-200">
+    <aside className="w-80 border-r border-black/[0.08] dark:border-white/[0.08] bg-white/95 dark:bg-[#0c0c0e]/95 p-5 flex flex-col gap-5 shrink-0 h-full overflow-y-auto z-20 transition-colors duration-200">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 dark:text-blue-400">

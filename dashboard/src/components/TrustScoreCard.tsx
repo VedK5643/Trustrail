@@ -26,7 +26,7 @@ export const TrustScoreCard: React.FC<TrustScoreCardProps> = ({ score, alpha, be
   }
 
   return (
-    <div className="p-4 rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white/90 dark:bg-white/[0.025] hover:bg-white dark:hover:bg-white/[0.045] backdrop-blur-xl transition-all duration-200 shadow-[0_2px_10px_rgba(0,0,0,0.03)] dark:shadow-lg">
+    <div className="p-4 rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-[#141418] hover:bg-neutral-50 dark:hover:bg-[#19191f] transition-all duration-200 shadow-[0_2px_10px_rgba(0,0,0,0.03)] dark:shadow-lg">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">{name}</span>
         <div className={`p-1 rounded-full border ${badgeClasses}`}>

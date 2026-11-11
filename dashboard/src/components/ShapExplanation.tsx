@@ -12,7 +12,7 @@ export const ShapExplanation: React.FC<ShapExplanationProps> = ({ explanation })
   }
 
   return (
-    <div className="mt-3 p-4 bg-black/[0.02] dark:bg-white/[0.02] rounded-2xl border border-black/[0.08] dark:border-white/[0.08] text-xs space-y-3.5 backdrop-blur-xl shadow-sm dark:shadow-lg transition-colors duration-200">
+    <div className="mt-3 p-4 bg-black/[0.02] dark:bg-white/[0.025] rounded-2xl border border-black/[0.08] dark:border-white/[0.08] text-xs space-y-3.5 shadow-sm dark:shadow-lg transition-colors duration-200">
       <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-semibold text-[11px] tracking-wider uppercase">
         <AlertTriangle className="w-3.5 h-3.5 stroke-[2.2]" />
         SHAP Explainability · Key Risk Drivers

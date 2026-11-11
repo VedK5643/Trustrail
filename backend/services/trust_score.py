@@ -38,7 +38,9 @@ class TrustScoreService:
     @classmethod
     async def get_agent_trust(cls, db: AsyncSession, agent_id: str) -> tuple[float, float, float]:
         """
-        Fetches agent, applies decay, updates DB, and returns (trust_score, alpha, beta).
+        Read-only trust lookup: fetches agent and applies time decay in memory
+        without writing back to the database. Persistence only happens inside
+        update_trust_outcome() after an actual transaction decision.
         """
         result = await db.execute(select(Agent).where(Agent.id == agent_id))
         agent = result.scalar_one_or_none()
@@ -51,12 +53,6 @@ class TrustScoreService:
             float(agent.trust_beta),
             agent.trust_updated_at
         )
-
-        agent.trust_alpha = alpha
-        agent.trust_beta = beta
-        agent.trust_score = score
-        agent.trust_updated_at = datetime.now(timezone.utc)
-        await db.commit()
 
         return (score, alpha, beta)
 

@@ -73,7 +73,7 @@ export const PolicyEditor: React.FC<PolicyEditorProps> = ({ agents, selectedAgen
   };
 
   return (
-    <div className="p-7 max-w-2xl bg-white dark:bg-white/[0.025] rounded-3xl border border-black/[0.08] dark:border-white/[0.08] backdrop-blur-2xl shadow-xl dark:shadow-2xl text-neutral-800 dark:text-neutral-200 transition-colors duration-200">
+    <div className="p-7 max-w-2xl bg-white dark:bg-[#111115] rounded-3xl border border-black/[0.08] dark:border-white/[0.08] shadow-xl dark:shadow-2xl text-neutral-800 dark:text-neutral-200 transition-colors duration-200">
       <div className="flex items-center justify-between pb-5 border-b border-black/[0.06] dark:border-white/[0.06] mb-6">
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 dark:text-blue-400 shadow-sm">

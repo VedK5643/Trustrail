@@ -9,16 +9,20 @@ router = APIRouter(prefix="/agents", tags=["Agents"])
 
 @router.get("")
 async def list_agents(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(Agent).order_by(Agent.id))
-    agents = result.scalars().all()
+    result = await db.execute(
+        select(Agent, AgentRollingStats)
+        .outerjoin(AgentRollingStats, AgentRollingStats.agent_id == Agent.id)
+        .order_by(Agent.id)
+    )
+    rows = result.all()
 
     output = []
-    for a in agents:
-        score, alpha, beta = await trust_score_service.get_agent_trust(db, a.id)
-        
-        # Get stats
-        stats_res = await db.execute(select(AgentRollingStats).where(AgentRollingStats.agent_id == a.id))
-        st = stats_res.scalar_one_or_none()
+    for a, st in rows:
+        alpha, beta, score = trust_score_service.calculate_decay(
+            float(a.trust_alpha),
+            float(a.trust_beta),
+            a.trust_updated_at
+        )
 
         output.append({
             "id": a.id,

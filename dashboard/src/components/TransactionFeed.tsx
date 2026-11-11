@@ -20,8 +20,8 @@ export const TransactionFeed: React.FC<TransactionFeedProps> = ({
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#f5f5f7] dark:bg-[#08080a] transition-colors duration-200">
-      {/* Top Filter Bar with Frosted Translucency */}
-      <div className="px-6 py-3 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between bg-white/70 dark:bg-[#0c0c0e]/60 backdrop-blur-xl shrink-0 z-20 transition-colors duration-200">
+      {/* Top Filter Bar */}
+      <div className="px-6 py-3 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between bg-white/95 dark:bg-[#0c0c0e]/95 shrink-0 z-20 transition-colors duration-200">
         <div className="flex items-center gap-1.5 bg-black/[0.05] dark:bg-black/40 p-1 rounded-xl border border-black/[0.06] dark:border-white/[0.08] shadow-inner">
           {['all', 'HELD', 'AUTO_CAPTURED', 'CAPTURED', 'VOIDED'].map((st) => (
             <button
@@ -61,7 +61,7 @@ export const TransactionFeed: React.FC<TransactionFeedProps> = ({
           </div>
         ) : (
           <table className="w-full text-left border-collapse">
-            <thead className="sticky top-0 bg-[#f5f5f7]/95 dark:bg-[#0c0c0e]/95 backdrop-blur-2xl border-b border-black/[0.08] dark:border-white/[0.08] text-[11px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400 z-10 select-none transition-colors duration-200">
+            <thead className="sticky top-0 bg-[#f5f5f7]/95 dark:bg-[#0c0c0e]/95 backdrop-blur-md border-b border-black/[0.08] dark:border-white/[0.08] text-[11px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400 z-10 select-none transition-colors duration-200">
               <tr>
                 <th className="px-5 py-3">Time</th>
                 <th className="px-5 py-3">Agent</th>

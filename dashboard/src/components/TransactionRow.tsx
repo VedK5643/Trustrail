@@ -23,14 +23,14 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({ txn, onRefresh }
     switch (status) {
       case 'AUTO_CAPTURED':
         return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 backdrop-blur-sm">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
             <CheckCircle2 className="w-3.5 h-3.5 stroke-[2]" /> Auto-Captured
           </span>
         );
       case 'CAPTURED':
       case 'APPROVED':
         return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 backdrop-blur-sm">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
             <CheckCircle2 className="w-3.5 h-3.5 stroke-[2]" /> Captured
           </span>
         );
@@ -43,7 +43,7 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({ txn, onRefresh }
       case 'VOIDED':
       case 'DENIED':
         return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-rose-500/10 text-rose-700 dark:text-rose-400 border border-rose-500/20 backdrop-blur-sm">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-rose-500/10 text-rose-700 dark:text-rose-400 border border-rose-500/20">
             <XCircle className="w-3.5 h-3.5 stroke-[2]" /> Voided
           </span>
         );
@@ -118,7 +118,7 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({ txn, onRefresh }
       {expanded && (
         <tr className={`border-b ${isHeld ? 'border-amber-500/20 bg-amber-500/[0.02]' : 'border-black/[0.06] dark:border-white/[0.06] bg-black/[0.015] dark:bg-black/20'}`}>
           <td colSpan={7} className="px-6 py-4">
-            <div className="rounded-2xl bg-white/90 dark:bg-white/[0.02] border border-black/[0.08] dark:border-white/[0.08] p-4 backdrop-blur-md shadow-lg dark:shadow-2xl space-y-3.5 transition-colors duration-200">
+            <div className="rounded-2xl bg-white dark:bg-[#111115] border border-black/[0.08] dark:border-white/[0.08] p-4 shadow-lg dark:shadow-2xl space-y-3.5 transition-colors duration-200">
               <div className="flex flex-wrap items-center gap-2 pb-3 border-b border-black/[0.06] dark:border-white/[0.06] text-[11px] text-neutral-500 dark:text-neutral-400">
                 <span className="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.06] font-mono text-neutral-800 dark:text-neutral-300">
                   <strong className="text-neutral-500 dark:text-neutral-400 font-sans font-medium mr-1.5">PayPal Order ID:</strong>
