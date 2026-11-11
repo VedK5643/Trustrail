@@ -87,8 +87,8 @@ order_payload = {
     "payment_source": {
         "paypal": {
             "experience_context": {
-                "return_url": "https://trustrail.local/return",
-                "cancel_url": "https://trustrail.local/cancel",
+                "return_url": "https://trustrail-gamma.vercel.app/",
+                "cancel_url": "https://trustrail-gamma.vercel.app/",
                 "user_action": "PAY_NOW"
             }
         }
